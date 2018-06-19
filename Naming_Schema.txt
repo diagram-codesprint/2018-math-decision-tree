@@ -1,0 +1,60 @@
+Node Naming Schema
+{Stage}.{SubStageArea}.{SubStage}
+
+Stage:
+Introduced
+Support
+Practicing
+Got It
+One on One
+Worksheet
+Strategy Sheet
+Re-evaluate Child as a Whole
+Student Moved to Exective Functioning Specialist
+
+Support.SubStageArea
+Build
+Draw
+
+Support.SubStage:
+1. Can they {SubStageArea} it?
+2. Does it match?
+3. Can they describe it?
+4. Can they answer another similar problem without {SubStageArea} -ing it?
+
+Expanded:
+Introduced
+Support.Build.1
+Support.Build.2
+Support.Build.3
+Support.Build.4
+Support.Draw.1
+Support.Draw.2
+Support.Draw.3
+Support.Draw.4
+Practicing
+Got It
+One on One
+Worksheet
+Strategy Sheet
+Re-evaluate Child as a Whole
+Student Moved to Exective Functioning Specialist
+
+Node fields:
+int id
+String description
+String question
+int noNode.id
+int yesNode.id
+boolean leafNode //This will turn true on nodes where iterations > max iterations
+
+Skills:
+int id;
+String name;
+
+Students:
+int id
+String name
+Array <Pair> (int skill.id, int currentNode.id)
+
+
