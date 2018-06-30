@@ -1,0 +1,36 @@
+//Global vars
+HashMap nodeMap;
+Array students;
+
+function loadNodesInMap();
+function loadStudentsInArray();
+function saveStudentsToFile();
+function makeIntroView(students){
+h1: Math Decision Tree
+p: Description
+list: button: {name: student.name, onClick=makeStudentView(student)}
+};
+function makeStudentView(student){
+h1: student.name
+table:
+for(skill in student.skillList){
+tableRow: skill.name
+tableRow: getColor()
+}
+};
+function makeNodeView(nodeId);
+function makeStatusCell(status){
+	switch(status){
+	case Introduced:
+		return td color:blue, symbol: B
+	case Support:
+		return td color: green, symbol G
+	case Practicing:
+		return td color: red, symbol R
+	case GotIt:
+		return td color: yellow, symbol Y
+	}
+};
+
+
+
