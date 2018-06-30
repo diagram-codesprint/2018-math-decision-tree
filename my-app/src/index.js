@@ -64,6 +64,11 @@ var skillsList = [
         "yes": "2"
     }
 ];
+
+function getSkillById(id) {
+    return skillsList.map((skill) => skill.id === id);
+};
+
 class Skill extends React.Component {
     render() {
         return (
@@ -86,19 +91,36 @@ class StudentView extends React.Component {
         return "1";
     }
     render() {
-        const skillsList = (this.getStudentById(studentId).skills);
+        const student = this.getStudentById(studentId);
+        const skillsList = student.skills;
         const listItems = skillsList.map((skill) =>
             <li key={skill.id}>{skill.id}</li>
         );
+        const tableRows = skillsList.map((skill) =>
+            <tr key={skill.id}><td>{skill.id}</td><td>{skill.status}</td><td><button>Resume</button></td></tr>
+        );
         return (
-                <ul>{listItems}</ul>
+            <div>
+                <h1> {student.name}</h1>
+                <h2> Skills </h2>
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Skill Name</th>
+                        <th>Status</th>
+                        <th>Resume</th>
+                    </tr>
+                    {tableRows}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
 
 class Student extends React.Component {
     renderStudentStatus(student) {
-        alert(student.name);
+        console.log(student.name);
         studentId = student.id;
         ReactDOM.render(<StudentView />, document.getElementById("root"));
     }
@@ -125,10 +147,6 @@ class Student extends React.Component {
 }
 
 class Intro extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     renderStudent(i) {
         return (
