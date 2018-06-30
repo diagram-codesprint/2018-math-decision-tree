@@ -13,31 +13,31 @@ var studentList = [
     {
         "name": "Rebecca",
         "id": "1",
-        "skills": {
+        "skills": [{
             "id": "1",
             "status": "1"
-        }
+        }]
     }, {
         "name": "Clayton",
         "id": "2",
-        "skills": {
+        "skills": [{
             "id": "1",
-            "status": "2"
-        }
+            "status": "1"
+        }]
     }, {
         "name": "Beth",
         "id": "3",
-        "skills": {
+        "skills": [{
             "id": "1",
-            "status": "3"
-        }
+            "status": "1"
+        }]
     }, {
         "name": "Austin",
         "id": "4",
-        "skills": {
+        "skills": [{
             "id": "1",
-            "status": "4"
-        }
+            "status": "1"
+        }]
     }
 ];
 
@@ -79,17 +79,19 @@ class StudentView extends React.Component {
         for (var i = 0; i < studentList.length; i++) {
             console.log(studentList[i]);
             if (studentList[i].id === id) {
-                console.log("Returning "+i);
+                console.log("Returning " + i);
                 return studentList[i];
             }
         }
         return "1";
     }
     render() {
+        const skillsList = (this.getStudentById(studentId).skills);
+        const listItems = skillsList.map((skill) =>
+            <li key={skill.id}>{skill.id}</li>
+        );
         return (
-            <div >
-            {this.getStudentById(studentId).skillsList}
-            </div>
+                <ul>{listItems}</ul>
         );
     }
 }
